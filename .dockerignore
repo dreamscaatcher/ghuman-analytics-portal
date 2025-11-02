@@ -1,0 +1,14 @@
+.next
+.turbo
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+coverage
+dist
+.env*
+Dockerfile*
+docker-compose*.yml
+README.md
+certbot/conf/accounts
+**/Thumbs.db
