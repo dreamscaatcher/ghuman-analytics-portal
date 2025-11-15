@@ -26,15 +26,14 @@ import {
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-import { primaryNavigation } from "../../config/navigation";
-import { Role, useRole } from "../providers/RoleProvider";
+import { getNavigationForRole, type NavigationLink } from "../../config/navigation";
+import { useRole } from "../providers/RoleProvider";
 import { RoleSwitcher } from "./RoleSwitcher";
 
 type NavigationItem = {
   label: string;
   href: string;
   icon?: React.ReactNode;
-  roles?: Role[];
 };
 
 const ICON_MAP = {
@@ -43,12 +42,13 @@ const ICON_MAP = {
   kitchen: <KitchenIcon fontSize="small" />,
 } as const;
 
-const DEFAULT_LINKS: NavigationItem[] = primaryNavigation.map((item) => ({
-  label: item.label,
-  href: item.href,
-  icon: item.icon ? ICON_MAP[item.icon] : undefined,
-  roles: item.roles,
-}));
+function mapNavigationItems(items: NavigationLink[]): NavigationItem[] {
+  return items.map((item) => ({
+    label: item.label,
+    href: item.href,
+    icon: item.icon ? ICON_MAP[item.icon] : undefined,
+  }));
+}
 
 type AppShellProps = {
   children: React.ReactNode;
@@ -57,24 +57,22 @@ type AppShellProps = {
 
 const DRAWER_WIDTH = 240;
 
-export function AppShell({ children, links = DEFAULT_LINKS }: AppShellProps) {
+export function AppShell({ children, links }: AppShellProps) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const pathname = usePathname();
   const { role } = useRole();
 
-  const availableLinks = React.useMemo(() => {
-    return links.filter((item) => {
-      if (!item.roles || item.roles.length === 0) {
-        return true;
-      }
+  const navigationLinks = React.useMemo(() => {
+    if (links && links.length > 0) {
+      return links;
+    }
 
-      return item.roles.includes(role);
-    });
+    return mapNavigationItems(getNavigationForRole(role));
   }, [links, role]);
 
-  const showNavigation = role !== "customer" && availableLinks.length > 0;
+  const showNavigation = role !== "customer" && navigationLinks.length > 0;
 
   const toggleDrawer = () => {
     setMobileOpen((prev) => !prev);
@@ -92,7 +90,7 @@ export function AppShell({ children, links = DEFAULT_LINKS }: AppShellProps) {
       </Box>
       <Divider />
       <List sx={{ flex: 1 }}>
-        {availableLinks.map((item) => {
+        {navigationLinks.map((item) => {
           const selected = pathname === item.href;
 
           return (
@@ -160,7 +158,7 @@ export function AppShell({ children, links = DEFAULT_LINKS }: AppShellProps) {
 
           {isDesktop && showNavigation && (
             <Stack direction="row" spacing={1} alignItems="center" sx={{ flexGrow: 1 }}>
-              {availableLinks.map((item) => {
+              {navigationLinks.map((item) => {
                 const selected = pathname === item.href;
                 return (
                   <Button
