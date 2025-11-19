@@ -2,11 +2,12 @@ import { Box, Card, CardActions, CardContent, CardMedia, Container, Stack, Typog
 
 import { RoleGuard } from "../components/security/RoleGuard";
 import { listMenuItems } from "../services/menu";
-import { AddToCartButton } from "./_components/AddToCartButton";
 import { getCustomerById } from "../services/users";
 import Link from "next/link";
 import { getSafeServerSession } from "../lib/session";
 import { LogoutButton } from "./_components/LogoutButton";
+import { AddToCartButton } from "./_components/AddToCartButton";
+import { ManagerQuickLinks } from "./_components/ManagerQuickLinks";
 
 export const dynamic = "force-dynamic";
 
@@ -45,6 +46,8 @@ export default async function Home() {
               </Stack>
             )}
           </Stack>
+
+          <ManagerQuickLinks />
 
           <Stack spacing={3} sx={{ mt: 6 }}>
             {menuItems.length === 0 ? (
