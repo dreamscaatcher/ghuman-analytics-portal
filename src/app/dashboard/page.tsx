@@ -1,5 +1,6 @@
-import { Card, CardContent, Divider, Stack, Typography } from "@mui/material";
+import { Button, Card, CardContent, Divider, Stack, Typography } from "@mui/material";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 
 import { RoleGuard } from "../../components/security/RoleGuard";
 import { MenuItemForm } from "./_components/MenuItemForm";
@@ -82,13 +83,23 @@ export default async function DashboardPage() {
   return (
     <RoleGuard allowedRoles={["manager"]}>
       <Stack spacing={4}>
-        <Stack spacing={1}>
-          <Typography component="h1" variant="h4" fontWeight={700}>
-            Manager Overview
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Publish dishes to the guest menu and send them to the kitchen queue.
-          </Typography>
+        <Stack
+          spacing={1}
+          direction={{ xs: "column", sm: "row" }}
+          alignItems={{ xs: "flex-start", sm: "center" }}
+          justifyContent="space-between"
+        >
+          <Stack spacing={0.5}>
+            <Typography component="h1" variant="h4" fontWeight={700}>
+              Manager Overview
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Publish dishes to the guest menu and send them to the kitchen queue.
+            </Typography>
+          </Stack>
+          <Button component={Link} href="/manager" variant="outlined" size="small">
+            Back to manager home
+          </Button>
         </Stack>
 
         <MenuItemForm action={addMenuItem} />
