@@ -1,2 +1,5 @@
-export { dynamic } from "../page";
-export { default } from "../page";
+import HomePage from "../page";
+
+export const dynamic = "force-dynamic";
+
+export default HomePage;
