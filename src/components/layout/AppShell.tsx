@@ -178,7 +178,7 @@ export function AppShell({ children, links }: AppShellProps) {
             </Stack>
           )}
 
-          {role !== "customer" && <RoleSwitcher />}
+          <RoleSwitcher />
         </Toolbar>
       </AppBar>
 
