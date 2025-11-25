@@ -22,7 +22,11 @@ export function requireSameOrigin(
   const validate = (raw: string) => {
     const candidate = new URL(raw);
     if (candidate.origin === targetOrigin) return true;
-    return getBaseDomain(candidate) === targetBase;
+    return (
+      candidate.hostname === target.hostname ||
+      candidate.hostname.endsWith(`.${targetBase}`) ||
+      getBaseDomain(candidate) === targetBase
+    );
   };
 
   if (originHeader) {
