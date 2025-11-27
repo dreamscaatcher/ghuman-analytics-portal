@@ -37,6 +37,7 @@ export async function POST(request: Request) {
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
+    const id = randomUUID();
 
     await session.run(
       `
@@ -48,15 +49,19 @@ export async function POST(request: Request) {
           createdAt: datetime()
         })
       `,
-      {
-        id: randomUUID(),
-        name,
-        email,
-        passwordHash,
-      },
+      { id, name, email, passwordHash },
     );
 
-    return NextResponse.json({ ok: true });
+    const response = NextResponse.json({ ok: true, user: { id, name, email } });
+    response.cookies.set("registered", id, {
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    return response;
   } catch (error) {
     console.error("Error registering user:", error);
     return NextResponse.json({ error: "Registration failed" }, { status: 500 });

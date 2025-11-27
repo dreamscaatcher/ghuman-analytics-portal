@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 const navStyles = {
   wrapper: {
@@ -48,6 +49,8 @@ const navStyles = {
 };
 
 export default function Page() {
+  const isRegistered = cookies().has("registered");
+
   return (
     <div style={{ fontFamily: "Inter, system-ui, sans-serif", minHeight: "100vh", background: "#f9fafb" }}>
       <header style={navStyles.wrapper}>
@@ -63,9 +66,11 @@ export default function Page() {
           <button type="button" style={navStyles.buttonGhost}>
             Sign in
           </button>
-          <Link href="/register" style={navStyles.buttonPrimary}>
-            Register Here
-          </Link>
+          {isRegistered ? null : (
+            <Link href="/register" style={navStyles.buttonPrimary}>
+              Register Here
+            </Link>
+          )}
         </div>
       </header>
 

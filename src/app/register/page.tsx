@@ -3,6 +3,7 @@
 import type { CSSProperties, FormEvent } from "react";
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type FormState = {
   name: string;
@@ -64,6 +65,7 @@ const buttonStyle: CSSProperties = {
 const mutedText: CSSProperties = { color: "#6b7280", fontSize: "0.95rem" };
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -99,6 +101,7 @@ export default function RegisterPage() {
     fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "same-origin",
       body: JSON.stringify({ name: form.name, email: form.email, password: form.password }),
     })
       .then(async (res) => {
@@ -108,6 +111,7 @@ export default function RegisterPage() {
         }
         setMessage("Registration saved!");
         setForm({ name: "", email: "", password: "", confirmPassword: "" });
+        router.replace("/");
       })
       .catch((err: Error) => {
         setError(err.message || "Registration failed");
