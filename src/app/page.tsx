@@ -48,8 +48,9 @@ const navStyles = {
   },
 };
 
-export default function Page() {
-  const isRegistered = cookies().has("registered");
+export default async function Page() {
+  const cookieStore = await cookies();
+  const isRegistered = cookieStore.has("registered");
 
   return (
     <div style={{ fontFamily: "Inter, system-ui, sans-serif", minHeight: "100vh", background: "#f9fafb" }}>
