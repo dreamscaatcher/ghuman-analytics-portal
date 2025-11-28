@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Ghuman Restaurant",
-  description: "Welcome to Ghuman Restaurant.",
+  title: "Ghuman Analytics Portal",
+  description: "Marketing analytics, Cypher/Neo4j insights, and BI storytelling for ghuman.online.",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        style={{
+          margin: 0,
+          fontFamily: "Inter, system-ui, -apple-system, sans-serif",
+          background: "#0b1220",
+          color: "#e8edf5",
+          minHeight: "100vh",
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

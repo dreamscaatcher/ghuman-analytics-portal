@@ -1,0 +1,101 @@
+---------------------------
+Gurinder Singh Ghuman
+---------------------------
+Occupation: Looking for new opportunities 
+Nationality: Indian 
+Date of birth: 1978-09-22 
+Address: Siegfriedstraße 205, Berlin, 10365 
+Phone: +4917682110067 
+Email: gurinder.singh.ghuman22@gmail.com 
+Link: https://www.linkedin.com/in/gurinder-singh-ghuman 
+
+        
+//  Objective //
+        
+An Enthusiastically-motivated ex-Army officer turned Marketing Analyst with an MSc degree from Arden University, UK. Have 20 years of experience in the Intelligence wing of the Indian Army spanning 5 years of specialized experience in designing, creating, maintaining, analyzing, and presentation of Big data, awarded the Army Commander's commendation card for meritorious service. 
+Looking forward to using the insights gained from the data by leveraging the acquired skills of Python, SQL, and Power BI during my studies at university and my Internship at Optimizely; to help the company to optimize its marketing efforts to grow its business.
+
+            
+//  Experience //
+        
+_ Intern Marketing and Business Intelligence (BI) _
+Optimizely
+Berlin, Germany
+2021-10 - 2022-03
+Responsible for preparing Business Intelligence reports, analytics, and dashboards in Power BI for clients. Designing Email marketing campaigns for new and existing customers.
+            
+_ Military Officer _
+Indian Army
+India
+2000-06 - 2019-01
+Apart from normal military duties was responsible for designing, creating, maintaining, and updating the strategic Geographic Information Database for five years from 2013 to 2018, using Python, SQL, and various spatial data visualization tools like Geomedia, and Arc Gis. As commanding officer Satellite and Aerial Imagery, and GIS unit was responsible for the provision of timely operational Intelligence at the strategic level.
+            
+//  Education //
+        
+_ MSc Data Analytics and Marketing _
+Arden University, UK, Berlin study centre
+Berlin, Germany, 2020 - 2022
+Subjects: Data Handling and Decision making, Data Visualization, Mastering Metrics, Strategic Marketing, International Marketing, Digital marketing, and Research Project. The research project was regarding the strategic marketing decisions of Starbucks, Primary data was collected using an online survey, data cleaning, data manipulation, and data analysis conducted using Python and data was presented using Microsoft Power BI.
+            
+_ Bachelor of Arts _
+National Defence Academy
+Pune, India, 1997-01 - 1999-12
+Major subjects: Economics, Geography, History, English.
+Qualifying subjects: Physics, Chemistry, Mathematics, Computer Science, Basic Engineering, and Political Science.
+
+            
+//  Skills //
+        
+• Leadership.
+            
+• Communication
+            
+• Python
+
+
+Cypher GQL
+            
+• SQL
+            
+• Power BI
+
+Next js
+
+neo4j 
+            
+//  Languages //
+        
+• English, native 
+            
+• Hindi, native 
+            
+• Punjabi, native 
+            
+• Deutsch, Intermediate
+            
+//  Projects //
+        
+Designing, creating, maintaining, updating, and presenting the Strategic GIS database of the Indian Army as Officer Commanding.
+
+
+
+            
+Covid-19 SQL analysis project using SSMs and Power BI
+
+
+
+            
+Strategic Marketing decisions of Starbucks using online surveys, Python, and Power BI research project.
+            
+//  Certificates & Courses //
+        
+Data Analytics Bootcamp, Udemy
+            
+Excel From Beginner to advaced from Udemy
+            
+DataVisualization in Tableau from Udemy
+            
+//  Honours & Awards //
+        
+Army Commander's Commendation Card for Meritotrious Service.
+            
