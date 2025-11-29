@@ -254,7 +254,7 @@ export default function Page() {
         </div>
       </section>
 
-      <footer style={{ marginTop: 32, textAlign: "center", color: "#6b7280", fontSize: "0.85rem" }}>
+      <footer style={{ marginTop: 32, textAlign: "center", color: "#1158e7ff", fontSize: "0.85rem" }}>
         <p style={{ margin: 0 }}>
           🚀 Deployed via GitHub Actions CI/CD Pipeline
         </p>
