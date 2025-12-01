@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Ghuman Analytics Portal",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           minHeight: "100vh",
         }}
       >
+        <Navbar />
         {children}
       </body>
     </html>
