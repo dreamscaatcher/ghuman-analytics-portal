@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   web:
     image: ${WEB_IMAGE:-ghuman-restaurant:latest}
@@ -11,7 +9,8 @@ services:
       NODE_ENV: production
       PORT: 3000
     env_file:
-      - .env.production
+      - path: .env.production
+        required: false
     expose:
       - "3000"
 
